@@ -13,4 +13,12 @@ class Tipos_RequisitantesController extends Controller
             'tipos_requisitantes' => $tipos_requisitantes
         ]);
     }
+
+    public function show(Request $req){
+        $idTipos_requisitantes = $req ->id;
+        $tipo_requisitante = Tipo_Requisitante::where('id_tipo_requisitante', $idTipos_requisitantes)->first();
+        return view('tipos_requisitantes.show', [
+            'tipo_requisitante' => $tipo_requisitante
+        ]);
+    }
 }

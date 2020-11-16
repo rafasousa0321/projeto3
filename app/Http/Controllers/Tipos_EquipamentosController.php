@@ -13,4 +13,12 @@ class Tipos_EquipamentosController extends Controller
             'tipos_equipamentos' => $tipos_equipamentos
         ]);
     }
+
+    public function show(Request $req){
+        $idTipos_equipamentos = $req ->id;
+        $tipo_equipamento = Tipo_Equipamento::where('id_tipo_equipamento', $idTipos_equipamentos)->first();
+        return view('tipos_equipamentos.show', [
+            'tipo_equipamento' => $tipo_equipamento
+        ]);
+    }
 }

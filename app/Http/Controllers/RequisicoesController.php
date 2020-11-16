@@ -13,4 +13,12 @@ class RequisicoesController extends Controller
             'requisicoes' => $requisicoes
         ]);
     }
+
+    public function show(Request $req){
+        $idRequisicoes = $req ->id;
+        $requisicao = Requisicao::where('id_requisicao', $idRequisicoes)->first();
+        return view('requisicoes.show', [
+            'requisicao' => $requisicao
+        ]);
+    }
 }

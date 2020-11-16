@@ -13,4 +13,12 @@ class RequisitantesController extends Controller
             'requisitantes' => $requisitantes
         ]);
     }
+
+    public function show(Request $req){
+        $idRequisitantes = $req ->id;
+        $requisitante = Requisitante::where('id_requisitante', $idRequisitantes)->first();
+        return view('requisitantes.show', [
+            'requisitante' => $requisitante
+        ]);
+    }
 }

@@ -13,4 +13,12 @@ class MateriaisController extends Controller
             'materiais' => $materiais
         ]);
     }
+
+    public function show(Request $req){
+        $idMateriais = $req ->id;
+        $material = Material::where('id_material', $idMateriais)->first();
+        return view('materiais.show', [
+            'material' => $material
+        ]);
+    }
 }
