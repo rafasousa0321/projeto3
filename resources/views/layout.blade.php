@@ -15,7 +15,8 @@
                     <div class="col-md-12">
                         @yield('conteudo')
                         <br>
-                    </div> 
+                        <br>
+                    </div>
                     <div class="col-md-2">
                         <a style="color: black" href="{{route('requisicoes.index')}}"><i class="fas fa-arrow-right"></i>   Requisicoes</a>
                     </div>
