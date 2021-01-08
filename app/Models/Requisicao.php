@@ -11,6 +11,21 @@ class Requisicao extends Model
     protected $primaryKey="id_requisicao";
     protected $table="requisicoes";
 
+    protected $fillable = [
+        'data_requisicao',
+        'data_prevista_entrega',
+        'data_entrega',
+        'data_renovacao',
+        'entregue',
+        'renovou',
+        'hora_requisicao',
+        'hora_entrega',
+        'id_material',
+        'id_tipo_equipamento',
+        'id_requisitantes',
+        'observacoes'
+    ];
+
     public function materiais(){
         return $this->hasMany(
             'App\Models\Material',

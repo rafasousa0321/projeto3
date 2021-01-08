@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Requisicao;
+use App\Models\Requisitante;
+use App\Models\Material;
 
 class RequisicoesController extends Controller
 {
@@ -19,6 +21,37 @@ class RequisicoesController extends Controller
         $requisicao = Requisicao::where('id_requisicao', $idRequisicoes)->first();
         return view('requisicoes.show', [
             'requisicao' => $requisicao
+        ]);
+    }
+
+    public function create(){
+        $requisitantes=Requisitante::all();
+        $materiais=Material::all();
+        return view ('requisicoes.create', [
+            'requisitantes'=>$requisitantes,
+            'materiais'=>$materiais
+        ]);
+    }
+
+    public function store(Request $req){
+        $novaRequisicao = $req->validate([
+            'data_requisicao'=>['nullable', 'date'],
+            'data_prevista_entrega'=>['nullable', 'date'],
+            'data_entrega'=>['nullable', 'date'],
+            'entregue'=>['nullable', 'numeric'],
+            'renovou'=>['nullable', 'numeric'],
+            'hora_requisicao'=>['nullable'],
+            'hora_entrega'=>['nullable',],
+            'id_material'=>['nullable', 'numeric'],
+            'id_tipo_equipamento'=>['nullable', 'numeric'],
+            'id_requisitantes'=>['required', 'numeric'],
+            'observacoes'=>['nullable', 'min:1', 'max:255']
+        ]);
+        $requisitantes = $req->id_requisitante;
+        $materiais = $req->id_material;
+        $requisicao = Requisicao::create($novaRequisicao);
+        return redirect()->route('requisicoes.show', [
+            'id'=>$requisicao->id_requisicao
         ]);
     }
 }

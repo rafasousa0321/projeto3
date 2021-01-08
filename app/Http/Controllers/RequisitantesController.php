@@ -21,4 +21,26 @@ class RequisitantesController extends Controller
             'requisitante' => $requisitante
         ]);
     }
+
+    public function create(){
+        $tipos_requisitantes=Tipo_Requisitante::all();
+        return view ('requisitantes.create', [
+            'tipos_requisitantes'=>$tipos_requisitantes,
+        ]);
+    }
+
+    public function store(Request $req){
+        $novoRequisitante = $req->validate([
+            'nome'=>['required', 'min:1' ,'max:25'],
+            'telefone'=>['nullable', 'min:9', 'max:9'],
+            'email'=>['nullable', 'min:1' , 'max:100'],
+            'localidade'=>['nullable', 'min:1', 'max:100'],
+            'cartao_cidadao'=>['nullable', 'min:8', 'max:8'],
+            'id_tipo_requisitante'=>['required'],
+        ]);
+        $tipos_requisitantes = $req->id_tipos_requisitantes;
+        return redirect()->route('requisitantes.show', [
+            'id'=>$requisitante->id_requisitante
+        ]);
+    }
 }

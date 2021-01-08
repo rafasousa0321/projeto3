@@ -11,6 +11,16 @@ class Requisitante extends Model
     protected $primaryKey="id_requisitante";
     protected $table="requisitantes";
 
+    protected $fillable = [
+        'id_requisitante',
+        'nome',
+        'telefone',
+        'email',
+        'localidade',
+        'cartao_cidadao',
+        'id_tipo_requisitante',
+    ];
+
     public function requisicoes(){
         return $this->belongsTo(
             'App\Models\Requisicoes',

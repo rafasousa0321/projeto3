@@ -7,4 +7,6 @@
             <b>{{$requisicao->id_requisicao}}</b><br>
     </li>
 @endforeach
+<br>
+<a href="{{route('requisicoes.create' , ['id'=>$requisicao->id_requisicao])}}" class="btn btn-secondary">Nova Requisição</a>
 @endsection

@@ -36,3 +36,11 @@ Route::get('/materiais/{id}/show', 'App\Http\Controllers\MateriaisController@sho
 Route::get('/tipos_requisitantes/{id}/show', 'App\Http\Controllers\Tipos_RequisitantesController@show')->name('tipos_requisitantes.show');
 
 Route::get('/tipos_equipamentos/{id}/show', 'App\Http\Controllers\Tipos_EquipamentosController@show')->name('tipos_equipamentos.show');
+
+Route::get('/requisicoes/create', 'App\Http\Controllers\RequisicoesController@create')->name('requisicoes.create');
+
+Route::post('/requisicoes/store', 'App\Http\Controllers\RequisicoesController@store')->name('requisicoes.store');
+
+Route::get('/requisitantes/create', 'App\Http\Controllers\RequisitantesController@create')->name('requisitantes.create');
+
+Route::post('/requisitantes/store', 'App\Http\Controllers\RequisitantesController@store')->name('requisitantes.store');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Nov-2020 às 18:18
+-- Generation Time: 08-Jan-2021 às 18:22
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -83,7 +83,10 @@ CREATE TABLE `requisicoes` (
 INSERT INTO `requisicoes` (`id_requisicao`, `data_requisicao`, `data_prevista_entrega`, `data_entrega`, `data_renovacao`, `entregue`, `renovou`, `hora_requisicao`, `hora_entrega`, `id_material`, `id_tipo_equipamento`, `observacoes`, `created_at`, `updated_at`, `id_requisitantes`) VALUES
 (1, '2020-09-16', '2020-12-15', '2020-11-09', '2020-12-30', 0, 0, '09:28:17', '19:26:13', 1, 1, '...', NULL, NULL, 1),
 (2, '2020-11-05', '2020-11-27', '2020-11-25', '2020-11-30', 0, 0, '21:10:00', '06:11:06', 2, 1, '...', NULL, NULL, 1),
-(3, '2020-09-07', '2020-10-15', '2020-11-02', '2020-11-28', 0, 0, '20:15:28', '12:21:07', 1, 2, '...', NULL, NULL, 2);
+(3, '2020-09-07', '2020-10-15', '2020-11-02', '2020-11-28', 0, 0, '20:15:28', '12:21:07', 1, 2, '...', NULL, NULL, 2),
+(4, '2020-12-31', '2020-12-30', '2021-01-21', NULL, 1, 1, '18:48:00', '16:48:00', 2, 2, 'qqqqqqqqqqqqqqqq', '2021-01-08 16:45:09', '2021-01-08 16:45:09', 3),
+(5, '2020-12-31', '2020-12-30', '2021-01-21', NULL, 1, 1, '18:48:00', '16:48:00', 2, 2, 'qqqqqqqqqqqqqqqq', '2021-01-08 16:45:28', '2021-01-08 16:45:28', 3),
+(6, '2021-01-28', '2021-01-19', '2021-01-27', NULL, 1, 0, '20:57:00', '16:00:00', 1, 2, 'rtg', '2021-01-08 16:57:56', '2021-01-08 16:57:56', 3);
 
 -- --------------------------------------------------------
 
@@ -203,7 +206,7 @@ ALTER TABLE `materiais`
 -- AUTO_INCREMENT for table `requisicoes`
 --
 ALTER TABLE `requisicoes`
-  MODIFY `id_requisicao` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_requisicao` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `requisitantes`

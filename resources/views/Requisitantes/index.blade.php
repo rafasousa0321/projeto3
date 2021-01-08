@@ -7,4 +7,6 @@
         <b>{{$requisitante->nome}}</b><br>
     </li>
 @endforeach
+<br>
+<a href="{{route('requisitantes.create' , ['id'=>$requisitante->id_requisitante])}}" class="btn btn-secondary">Novo Requisitante</a>
 @endsection
