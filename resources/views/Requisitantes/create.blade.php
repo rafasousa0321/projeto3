@@ -30,4 +30,6 @@
     @if ($errors-> has('id_tipo_requisitante'))
         <span style="color:red">o Idt do Tipo de Requisitante deve ser numerico.</span><br><br>
     @endif<br>
+
+    <input type="submit" value="Enviar">
 </form>

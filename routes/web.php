@@ -44,3 +44,7 @@ Route::post('/requisicoes/store', 'App\Http\Controllers\RequisicoesController@st
 Route::get('/requisitantes/create', 'App\Http\Controllers\RequisitantesController@create')->name('requisitantes.create');
 
 Route::post('/requisitantes/store', 'App\Http\Controllers\RequisitantesController@store')->name('requisitantes.store');
+
+Route::get('/materiais/create', 'App\Http\Controllers\MateriaisController@create')->name('materiais.create');
+
+Route::post('/materiais/store', 'App\Http\Controllers\MateriaisController@store')->name('materiais.store');

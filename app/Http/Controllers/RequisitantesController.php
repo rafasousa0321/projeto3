@@ -23,9 +23,9 @@ class RequisitantesController extends Controller
     }
 
     public function create(){
-        $tipos_requisitantes=Tipo_Requisitante::all();
+        $requisitante=Requisitante::all();
         return view ('requisitantes.create', [
-            'tipos_requisitantes'=>$tipos_requisitantes,
+            'requisitantes'=>$requisitante,
         ]);
     }
 
@@ -38,7 +38,8 @@ class RequisitantesController extends Controller
             'cartao_cidadao'=>['nullable', 'min:8', 'max:8'],
             'id_tipo_requisitante'=>['required'],
         ]);
-        $tipos_requisitantes = $req->id_tipos_requisitantes;
+        $requisitante = $req->id_requisitante;
+        $requisitante = Requisitante::create($novoRequisitante);
         return redirect()->route('requisitantes.show', [
             'id'=>$requisitante->id_requisitante
         ]);

@@ -7,4 +7,6 @@
         <b>{{$material->designacao}}</b><br>
     </li>
 @endforeach
+<br>
+<a href="{{route('materiais.create' , ['id'=>$material->id_material])}}" class="btn btn-secondary">Novo Material</a>
 @endsection
