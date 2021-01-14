@@ -56,3 +56,7 @@ Route::post('/tipos_equipamentos/store', 'App\Http\Controllers\Tipos_Equipamento
 Route::get('/tipos_requisitantes/create', 'App\Http\Controllers\Tipos_RequisitantesController@create')->name('tipos_requisitantes.create');
 
 Route::post('/tipos_requisitantes/store', 'App\Http\Controllers\Tipos_RequisitantesController@store')->name('tipos_requisitantes.store');
+
+Route::get('/requisicoes/{id}/edit', 'App\Http\Controllers\RequisicoesController@edit')->name('requisicoes.edit');
+
+Route::patch('/requisicoes/{id}/update', 'App\Http\Controllers\RequisicoesController@update')->name('requisicoes.update');

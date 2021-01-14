@@ -14,4 +14,6 @@
 <b>Id_Tipo_Equipamento: </b>{{$requisicao->id_tipo_equipamento}}<br>
 <b>Id_Requisitantes: </b>{{$requisicao->id_requisitantes}}<br>
 <b>Observações: </b>{{$requisicao->observacoes}}<br>
+<br>
+<a href="{{route('requisicoes.edit' , ['id'=>$requisicao->id_requisicao])}}" class="btn btn-secondary">Editar Requisição</a>
 @endsection

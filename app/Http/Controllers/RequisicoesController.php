@@ -54,4 +54,36 @@ class RequisicoesController extends Controller
             'id'=>$requisicao->id_requisicao
         ]);
     }
+
+    public function edit(Request $req){
+        $editarRequisicao = $req->id;
+        $requisicao = Requisicao::where('id_requisicao', $editarRequisicao)->first();
+        return view('requisicoes.edit', [
+            'requisicao'=>$requisicao
+        ]);
+    }
+
+    public function update(Request $req){
+        $editarRequisicao = $req->id;
+        $requisicao = Requisicao::where('id_requisicao', $editarRequisicao)->first();
+        $editarRequisicao = $req->validate([
+            'data_requisicao'=>['nullable', 'date'],
+            'data_prevista_entrega'=>['nullable', 'date'],
+            'data_entrega'=>['nullable', 'date'],
+            'entregue'=>['nullable', 'numeric'],
+            'renovou'=>['nullable', 'numeric'],
+            'hora_requisicao'=>['nullable'],
+            'hora_entrega'=>['nullable',],
+            'id_material'=>['nullable', 'numeric'],
+            'id_tipo_equipamento'=>['nullable', 'numeric'],
+            'id_requisitantes'=>['required', 'numeric'],
+            'observacoes'=>['nullable', 'min:1', 'max:255']
+        ]);
+        $requisicao->update($editarRequisicao);
+        $requisitantes = $req->id_requisitante;
+        $materiais = $req->id_material;
+        return redirect()->route('requisicoes.show', [
+            'id_requisitante'=>$requisicao->id_requisicao
+        ]);
+    }
 }
