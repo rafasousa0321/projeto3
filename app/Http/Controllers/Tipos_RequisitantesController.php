@@ -21,4 +21,22 @@ class Tipos_RequisitantesController extends Controller
             'tipo_requisitante' => $tipo_requisitante
         ]);
     }
+
+    public function create(){
+        $tipos_requisitantes=Tipo_Requisitante::all();
+        return view ('tipos_requisitantes.create', [
+            'tipos_requisitantes'=>$tipos_requisitantes,
+        ]);
+    }
+
+    public function store(Request $req){
+        $novoTipo_Requisitante = $req->validate([
+            'tipo'=>['required', 'min:1', 'max:100'],
+        ]);
+        $tipos_requisitantes = $req->id_tipo_requisitante;
+        $tipos_requisitantes = Tipo_Requisitante::create($novoTipo_Requisitante);
+        return redirect()->route('tipos_requisitantes.show', [
+            'id'=>$tipos_requisitantes->id_tipo_requisitante
+        ]);
+    }
 }

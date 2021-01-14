@@ -7,4 +7,6 @@
         <b>{{$tipo_requisitante->tipo}}</b><br>
     </li>
 @endforeach
+<br>
+<a href="{{route('tipos_requisitantes.create')}}" class="btn btn-secondary">Novo Tipo de Requisitante</a>
 @endsection

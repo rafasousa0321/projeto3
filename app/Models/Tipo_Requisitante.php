@@ -10,6 +10,10 @@ class Tipo_Requisitante extends Model
     use HasFactory;
     protected $primaryKey="id_tipo_requisitante";
     protected $table="tipos_requisitantes";
+    protected $fillable=[
+        'id_tipo_requisitante',
+        'tipo'
+    ];
 
     public function requisitantes(){
         return $this->hasMany(

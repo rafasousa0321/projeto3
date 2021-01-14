@@ -1,3 +1,5 @@
+@extends('layout')
+@section('conteudo')
 <form action="{{route('materiais.store')}}" enctype="multipart/form-data" method="post">
     @csrf 
 
@@ -13,7 +15,7 @@
 
     <b>Codigo Interno: </b><input type="text" name="codigo_interno" value="{{old('codigo_interno')}}"><br>
     @if ($errors-> has('codigo_interno'))
-        <span style="color:red">O codigo_interno tem que ser numerico.</span><br><br>
+        <span style="color:red">O codigo_interno tem que ser um número entre 0 e 10</span><br><br>
     @endif<br>
 
     <b>Observações: </b><textarea type="text" name="observacoes" value="{{old('observacoes')}}"></textarea><br>
@@ -23,3 +25,4 @@
 
     <input type="submit" value="Enviar">
 </form>
+@endsection

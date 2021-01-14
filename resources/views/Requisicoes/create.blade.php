@@ -1,3 +1,5 @@
+@extends('layout')
+@section('conteudo')
 <form action="{{route('requisicoes.store')}}" enctype="multipart/form-data" method="post">
     @csrf 
 
@@ -63,3 +65,4 @@
 
     <input type="submit" value="Enviar">
 </form>
+@endsection

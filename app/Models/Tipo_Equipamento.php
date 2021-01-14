@@ -10,6 +10,10 @@ class Tipo_Equipamento extends Model
     use HasFactory;
     protected $primaryKey="id_tipo_equipamento";
     protected $table="tipos_equipamentos";
+    protected $fillable=[
+        'id_tipo_requisitante',
+        'descricao'
+    ];
 
     public function requisicoes(){
         return $this->belongsTo(

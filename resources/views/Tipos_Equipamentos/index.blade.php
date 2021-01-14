@@ -7,4 +7,6 @@
         <b>{{$tipo_equipamento->descricao}}</b><br>
     </li>
 @endforeach
+<br>
+<a href="{{route('tipos_equipamentos.create')}}" class="btn btn-secondary">Novo Tipo de Equipamento</a>
 @endsection
