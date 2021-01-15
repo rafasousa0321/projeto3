@@ -60,3 +60,11 @@ Route::post('/tipos_requisitantes/store', 'App\Http\Controllers\Tipos_Requisitan
 Route::get('/requisicoes/{id}/edit', 'App\Http\Controllers\RequisicoesController@edit')->name('requisicoes.edit');
 
 Route::patch('/requisicoes/{id}/update', 'App\Http\Controllers\RequisicoesController@update')->name('requisicoes.update');
+
+Route::get('/requisitantes/{id}/edit', 'App\Http\Controllers\RequisitantesController@edit')->name('requisitantes.edit');
+
+Route::patch('/requisitantes/{id}/update', 'App\Http\Controllers\RequisitantesController@update')->name('requisitantes.update');
+
+Route::get('/materiais/{id}/edit', 'App\Http\Controllers\MateriaisController@edit')->name('materiais.edit');
+
+Route::patch('/materiais/{id}/update', 'App\Http\Controllers\MateriaisController@update')->name('materiais.update');

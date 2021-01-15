@@ -44,4 +44,29 @@ class RequisitantesController extends Controller
             'id'=>$requisitante->id_requisitante
         ]);
     }
+
+    public function edit(Request $req){
+        $editarRequisitante = $req->id;
+        $requisitante = Requisitante::where('id_requisitante', $editarRequisitante)->first();
+        return view('requisitantes.edit', [
+            'requisitante'=>$requisitante
+        ]);
+    }
+
+    public function update(Request $req){
+        $editarRequisitante = $req->id;
+        $requisitante = Requisitante::where('id_requisitante', $editarRequisitante)->first();
+        $editarRequisitante = $req->validate([
+            'nome'=>['required', 'min:1' ,'max:25'],
+            'telefone'=>['nullable', 'min:9', 'max:9'],
+            'email'=>['nullable', 'min:1' , 'max:100'],
+            'localidade'=>['nullable', 'min:1', 'max:100'],
+            'cartao_cidadao'=>['nullable', 'min:8', 'max:8'],
+            'id_tipo_requisitante'=>['required'],
+        ]);
+        $requisitante->update($editarRequisitante);
+        return redirect()->route('requisitantes.show', [
+            'id'=>$requisitante->id_requisitante
+        ]);
+    }
 }

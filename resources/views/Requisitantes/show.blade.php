@@ -8,4 +8,7 @@
 <b>Localidade: </b>{{$requisitante->localidade}}<br>
 <b>Cartão de Cidadão: </b>{{$requisitante->cartao_cidadao}}<br>
 <b>Id_Tipo_Requisitante: </b>{{$requisitante->id_tipo_requisitante}}<br>
+
+<br>
+<a href="{{route('requisitantes.edit' , ['id'=>$requisitante->id_requisitante])}}" class="btn btn-secondary">Editar Requisitante</a>
 @endsection

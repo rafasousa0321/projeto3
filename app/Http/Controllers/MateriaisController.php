@@ -42,4 +42,27 @@ class MateriaisController extends Controller
             'id'=>$materiais->id_material
         ]);
     }
+
+    public function edit(Request $req){
+        $editarMaterial = $req->id;
+        $material = Material::where('id_material', $editarMaterial)->first();
+        return view('materiais.edit', [
+            'material'=>$material
+        ]);
+    }
+
+    public function update(Request $req){
+        $editarMaterial = $req->id;
+        $material = Material::where('id_material', $editarMaterial)->first();
+        $editarMaterial = $req->validate([
+            'id_tipo_equipamento'=>['required', 'numeric', 'min:1', 'max:10'],
+            'designacao'=>['nullable', 'min:1', 'max:100'],
+            'codigo_interno'=>['required','numeric' ,'min:1', 'max:10'],
+            'observacoes'=>['nullable', 'min:1', 'max:100']
+        ]);
+        $material->update($editarMaterial);
+        return redirect()->route('materiais.show', [
+            'id'=>$material->id_material
+        ]);
+    }
 }

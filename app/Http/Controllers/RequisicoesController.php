@@ -83,7 +83,7 @@ class RequisicoesController extends Controller
         $requisitantes = $req->id_requisitante;
         $materiais = $req->id_material;
         return redirect()->route('requisicoes.show', [
-            'id_requisitante'=>$requisicao->id_requisicao
+            'id'=>$requisicao->id_requisicao
         ]);
     }
 }
