@@ -11,4 +11,5 @@
 
 <br>
 <a href="{{route('requisitantes.edit' , ['id'=>$requisitante->id_requisitante])}}" class="btn btn-secondary">Editar Requisitante</a>
+<a href="{{route('requisitantes.delete' , ['id'=>$requisitante->id_requisitante])}}" class="btn btn-secondary">Eliminar Requisitante</a>
 @endsection

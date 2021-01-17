@@ -7,4 +7,5 @@
 <b>Observações: </b>{{$materiais->observacoes}}<br>
 <br>
 <a href="{{route('materiais.edit' , ['id'=>$materiais->id_material])}}" class="btn btn-secondary">Editar Material</a>
+<a href="{{route('materiais.delete' , ['id'=>$materiais->id_material])}}" class="btn btn-secondary">Eliminar Material</a>
 @endsection

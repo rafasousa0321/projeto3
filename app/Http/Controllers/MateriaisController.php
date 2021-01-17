@@ -65,4 +65,17 @@ class MateriaisController extends Controller
             'id'=>$material->id_material
         ]);
     }
-}
+
+    public function delete(Request $req){
+        $material = Material::where('id_material', $req->id)->first();
+        return view('materiais.delete',
+            ['material'=>$material
+        ]);
+    }
+
+    public function destroy(Request $req){
+        $material = Material::where('id_material', $req->id)->first();
+        $material->delete();
+        return redirect()->route('materiais.index');
+        }
+    }

@@ -69,4 +69,17 @@ class RequisitantesController extends Controller
             'id'=>$requisitante->id_requisitante
         ]);
     }
-}
+
+    public function delete(Request $req){
+        $requisitante = Requisitante::where('id_requisitante', $req->id)->first();
+        return view('requisitantes.delete',
+            ['requisitante'=>$requisitante
+        ]);
+    }
+
+    public function destroy(Request $req){
+        $requisitante = Requisitante::where('id_requisitante', $req->id)->first();
+        $requisitante->delete();
+        return redirect()->route('requisitantes.index');
+        }
+    }

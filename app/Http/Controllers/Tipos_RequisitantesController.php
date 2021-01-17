@@ -39,4 +39,37 @@ class Tipos_RequisitantesController extends Controller
             'id'=>$tipos_requisitantes->id_tipo_requisitante
         ]);
     }
-}
+
+    public function edit(Request $req){
+        $editarTipo_Requisitante = $req->id;
+        $tipo_requisitante = Tipo_Requisitante::where('id_tipo_requisitante', $editarTipo_Requisitante)->first();
+        return view('tipos_requisitantes.edit', [
+            'tipo_requisitante'=>$tipo_requisitante
+        ]);
+    }
+
+    public function update(Request $req){
+        $editarTipo_Requisitante = $req->id;
+        $tipo_requisitante = Tipo_Requisitante::where('id_tipo_requisitante', $editarTipo_Requisitante)->first();
+        $editarTipo_Requisitante = $req->validate([
+            'tipo'=>['required', 'min:1', 'max:100'],
+        ]);
+        $tipo_requisitante->update($editarTipo_Requisitante);
+        return redirect()->route('tipos_requisitantes.show', [
+            'id'=>$tipo_requisitante->id_tipo_requisitante
+        ]);
+    }
+
+    public function delete(Request $req){
+        $tipo_requisitante = Tipo_Requisitante::where('id_tipo_requisitante', $req->id)->first();
+        return view('tipos_requisitantes.delete',
+            ['tipo_requisitante'=>$tipo_requisitante
+        ]);
+    }
+
+    public function destroy(Request $req){
+        $tipo_requisitante = Tipo_Requisitante::where('id_tipo_requisitante', $req->id)->first();
+        $tipo_requisitante->delete();
+        return redirect()->route('tipos_requisitantes.index');
+        }
+    }

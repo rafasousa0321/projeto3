@@ -16,4 +16,5 @@
 <b>Observações: </b>{{$requisicao->observacoes}}<br>
 <br>
 <a href="{{route('requisicoes.edit' , ['id'=>$requisicao->id_requisicao])}}" class="btn btn-secondary">Editar Requisição</a>
+<a href="{{route('requisicoes.delete' , ['id'=>$requisicao->id_requisicao])}}" class="btn btn-secondary">Eliminar Requisição</a>
 @endsection

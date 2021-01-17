@@ -86,4 +86,18 @@ class RequisicoesController extends Controller
             'id'=>$requisicao->id_requisicao
         ]);
     }
-}
+
+    public function delete(Request $req){
+        $requisicao = Requisicao::where('id_requisicao', $req->id)->first();
+        return view('requisicoes.delete',
+            ['requisicao'=>$requisicao
+        ]);
+    }
+
+    public function destroy(Request $req){
+        $requisicao = Requisicao::where('id_requisicao', $req->id)->first();
+        $requisicao->delete();
+        return redirect()->route('requisicoes.index');
+        }
+
+    }
